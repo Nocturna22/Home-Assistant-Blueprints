@@ -1,5 +1,6 @@
 # Original: https://community.home-assistant.io/t/adjustable-wake-up-to-android-alarm/599838
 # Added Parallel Actions option
+# Original author: op00
 
 blueprint:
   name: Adjustable Wake-up to Android alarm
@@ -20,7 +21,7 @@ blueprint:
      - If person 2 is not at home, retrieve today's calendar events and announce them on the bedroom speaker 2 minutes before the alarm is set to go off
      - If the temperature outside is below 0°C, start warming up the car 45 minutes before the alarm is set to go off
   domain: automation
-  author: op00
+  author: Nocturna
   homeassistant:
     min_version: 2024.10.0
   source_url: https://community.home-assistant.io/t/adjustable-wake-up-to-android-alarm/599838
