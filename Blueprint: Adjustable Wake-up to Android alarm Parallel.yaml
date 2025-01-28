@@ -101,9 +101,7 @@ action:
           value_template: "{{ execution_type == 'parallel' }}"
       sequence:
         - parallel:
-            {% for action in actions %}
-            - sequence: {{ action }}
-            {% endfor %}
+            - !input actions
           alias: Parallel Alarm Actions
   default:
     - sequence: !input actions
