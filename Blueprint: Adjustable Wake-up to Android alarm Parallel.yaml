@@ -94,15 +94,16 @@ action:
         - condition: template
           value_template: "{{ execution_type == 'sequential' }}"
       sequence:
-        - sequence: !input actions
-          alias: Sequential Alarm Actions
+        - alias: "Sequentiell ausführen"
+          sequence: !input actions
     - conditions:
         - condition: template
           value_template: "{{ execution_type == 'parallel' }}"
       sequence:
-        - parallel:
+        - alias: "Parallel ausführen"
+          parallel:
+            # Jede Aktion wird explizit als eigener Zweig definiert
             - !input actions
-          alias: Parallel Alarm Actions
   default:
     - sequence: !input actions
       alias: Default Alarm Actions
