@@ -5,7 +5,7 @@
 blueprint:
   name: Adjustable Wake-up to Android alarm
   description: >
-    # Adjustable Wake-up to Android alarm V6
+    # Adjustable Wake-up to Android alarm V7
 
     When the specified __conditions__ are satisfied, it runs these specified __actions__ prior the phone's next alarm
 
@@ -92,20 +92,12 @@ action:
   choose:
     - conditions:
         - condition: template
-          value_template: "{{ execution_type == 'sequential' }}"
-      sequence:
-        - sequence: !input actions
-          alias: Sequential Alarm Actions
+          value_template: "{{ !input execution_type == 'sequential' }}"
+      sequence: !input actions # Run actions sequentially if selected.
     - conditions:
         - condition: template
-          value_template: "{{ execution_type == 'parallel' }}"
-      sequence:
-        - parallel:
-            - !input actions
-          alias: Parallel Alarm Actions
-  default:
-    - sequence: !input actions
-      alias: Default Alarm Actions
+          value_template: "{{ !input execution_type == 'parallel' }}"
+      parallel: !input actions # Run actions in parallel if selected.
 mode: single
 trace:
   stored_traces: 21
