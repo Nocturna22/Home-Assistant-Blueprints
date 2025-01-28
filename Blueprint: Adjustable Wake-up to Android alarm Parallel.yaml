@@ -5,7 +5,7 @@
 blueprint:
   name: Adjustable Wake-up to Android alarm
   description: >
-    # Adjustable Wake-up to Android alarm V8
+    # Adjustable Wake-up to Android alarm V9
 
     When the specified __conditions__ are satisfied, it runs these specified __actions__ prior the phone's next alarm
 
