@@ -5,7 +5,7 @@
 blueprint:
   name: Adjustable Wake-up to Android alarm
   description: >
-    # Adjustable Wake-up to Android alarm V5
+    # Adjustable Wake-up to Android alarm V6
 
     When the specified __conditions__ are satisfied, it runs these specified __actions__ prior the phone's next alarm
 
@@ -103,6 +103,9 @@ action:
         - parallel:
             - !input actions
           alias: Parallel Alarm Actions
+  default:
+    - sequence: !input actions
+      alias: Default Alarm Actions
 mode: single
 trace:
   stored_traces: 21
